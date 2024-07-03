@@ -6,10 +6,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="index.css" />
   </head>
-  <body>
+  <body class="bg-neutral-100">
     <!-- Main -->
-    <main class="container flex-center h-screen">
-      <h1 class="bg-red-500">test</h1>
+    <main class="container mx-auto flex-center h-screen d-flex gap-1">
+      <button
+        data-type="dropdown"
+        data-id="testDropDown"
+        class="btn btn-primary"
+      >
+        Test
+      </button>
+      <div
+        class="bg-white px-3 py-2 rounded-lg hiddden"
+        data-type="dropdown-content"
+        data-id="testDropDown"
+      >
+        <header>test</header>
+      </div>
     </main>
     <!-- Main End -->
     <!-- Scripts -->

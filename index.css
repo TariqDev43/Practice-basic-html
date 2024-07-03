@@ -3,3 +3,28 @@
     justify-content: center;
     align-items: center;
 }
+
+.btn {
+    padding: .45rem 1.2rem;
+    border-radius: .3rem;
+    box-shadow: .1rem .2rem .5rem rgb(94, 94, 95);
+}
+
+.btn:hover {
+    background: hsl(244, 96%, 40%);
+}
+
+.btn-sm {
+    padding: .25rem .9rem;
+    border-radius: .3rem;
+}
+
+.btn-lg {
+    padding: .6rem 1.6rem;
+    border-radius: .3rem;
+}
+
+.btn-primary {
+    background: hsl(244, 98%, 48%);
+    color: white;
+}
