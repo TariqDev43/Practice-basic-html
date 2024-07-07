@@ -8,24 +8,33 @@
   </head>
   <body class="bg-neutral-100">
     <!-- Main -->
-    <main class="container mx-auto flex-center h-screen d-flex gap-1">
+    <main
+      class="container mx-auto h-screen justify-center flex flex-wrap items-start content-center mx-auto gap-1"
+    >
       <button
+        class="btn btn-sm btn-primary"
         data-type="dropdown"
-        data-id="testDropDown"
-        class="btn btn-primary"
+        data-id="dropdown-1"
       >
-        Test
+        Dropdown
       </button>
       <div
-        class="bg-white px-3 py-2 rounded-lg hiddden"
-        data-type="dropdown-content"
-        data-id="testDropDown"
+        class="bg-stone-200 shadow-lg px-4 min-w-32 py-2 rounded-lg"
+        data-type="dropdown-menu"
+        data-direction="right"
+        data-id="dropdown-1"
       >
-        <header>test</header>
+        <ul class="">
+          <li class="hover:bg-neutral-400">
+            <a href="#">Link 1</a>
+          </li>
+          <li class="hover:bg-neutral-400"><a href="#">Link 2</a></li>
+        </ul>
       </div>
     </main>
     <!-- Main End -->
     <!-- Scripts -->
     <script src="index.js"></script>
+    <script src="Js/DropDown.js"></script>
   </body>
 </html>
