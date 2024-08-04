@@ -64,12 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       dropDownMenu.style.position = "absolute";
 
-      window.addEventListener("click", (e) => {
+      const checkClickOutSide = (e) => {
         if (e.target === btn || dropDownMenu.contains(e.target)) {
         } else {
           dropDownMenu.style.display = "none";
+          window.removeEventListener("click", checkClickOutSide);
         }
-      });
+      };
+
+      window.addEventListener("click", checkClickOutSide);
 
       if (dropDownMenu.style.display === "none") {
         dropDownMenu.style.display = "block";
