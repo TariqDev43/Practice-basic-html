@@ -6,77 +6,114 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="index.css" />
   </head>
-  <body class="bg-neutral-100">
+  <body class="bg-neutral-200">
     <!-- Main -->
     <main
       class="container mx-auto h-screen justify-center flex flex-wrap items-start content-center mx-auto gap-1"
     >
-      <!-- DropDown Start -->
-      <button
-        class="btn btn-sm btn-primary"
-        data-type="dropdown"
-        data-id="dropdown-1"
-      >
-        Dropdown
-      </button>
-      <div
-        class="bg-stone-200 shadow-lg px-4 min-w-32 py-2 rounded-lg"
-        data-type="dropdown-menu"
-        data-direction="top"
-        data-id="dropdown-1"
-      >
-        <ul class="">
-          <li class="hover:bg-neutral-400">
-            <a href="#">Link 1</a>
-          </li>
-          <li class="hover:bg-neutral-400"><a href="#">Link 2</a></li>
-        </ul>
-      </div>
-      <!-- DropDown End -->
-      <!-- Modal Start -->
-      <!-- Modal Button -->
-      <button
-        data-type="modal"
-        data-id="modal-1"
-        class="btn btn-sm bg-orange-600 text-white ms-2"
-      >
-        Open Modal
-      </button>
-      <!-- Modal Menu -->
-      <div
-        data-type="modal-menu"
-        data-id="modal-1"
-        data-position="center"
-        data-closeOutsideClick="true"
-        class="bg-white flex flex-col w-64 px-6 p-2 shadow-lg rounded-lg"
-      >
-        <h3 class="text-2xl font-semibold uppercase">Modal Menu</h3>
-        <hr />
-        <div class="my-5">
-          <h4 class="text-xl mb-1 font-semibold">Modal Body</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
-            minima numquam quas optio dignissimos perferendis consequuntur ut
-            alias at, modi, illo ducimus impedit quae facere debitis ratione
-            nulla placeat recusandae!
-          </p>
+      <div class="hidden">
+        <!-- DropDown Start -->
+        <button
+          class="btn btn-sm btn-primary"
+          data-type="dropdown"
+          data-id="dropdown-1"
+        >
+          Dropdown
+        </button>
+        <div
+          class="bg-stone-200 shadow-lg px-4 min-w-32 py-2 rounded-lg"
+          data-type="dropdown-menu"
+          data-direction="top"
+          data-id="dropdown-1"
+        >
+          <ul class="">
+            <li class="hover:bg-neutral-400">
+              <a href="#">Link 1</a>
+            </li>
+            <li class="hover:bg-neutral-400"><a href="#">Link 2</a></li>
+          </ul>
         </div>
-        <div class="my-2 text-end">
-          <button
-            class="btn btn-sm bg-neutral-500 text-white"
-            data-type="modal-close"
-            data-id="modal-1"
-          >
-            Close Button
-          </button>
+        <!-- DropDown End -->
+        <!-- Modal Start -->
+        <!-- Modal Button -->
+        <button
+          data-type="modal"
+          data-id="modal-1"
+          class="btn btn-sm bg-orange-600 text-white ms-2"
+        >
+          Open Modal
+        </button>
+        <!-- Modal Menu -->
+        <div
+          data-type="modal-menu"
+          data-id="modal-1"
+          data-position="center"
+          data-closeOutsideClick="true"
+          class="bg-white flex flex-col w-64 px-6 p-2 shadow-lg rounded-lg"
+        >
+          <h3 class="text-2xl font-semibold uppercase">Modal Menu</h3>
+          <hr />
+          <div class="my-5">
+            <h4 class="text-xl mb-1 font-semibold">Modal Body</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+              minima numquam quas optio dignissimos perferendis consequuntur ut
+              alias at, modi, illo ducimus impedit quae facere debitis ratione
+              nulla placeat recusandae!
+            </p>
+          </div>
+          <div class="my-2 text-end">
+            <button
+              class="btn btn-sm bg-neutral-500 text-white"
+              data-type="modal-close"
+              data-id="modal-1"
+            >
+              Close Button
+            </button>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>
+      <div class="flex flex-col gap-1">
+        <!-- Accordion Start -->
+        <div
+          data-type="accordion"
+          data-id="accordion-1"
+          class="border-neutral-500 px-3 py-1 border border-1 w-64"
+        >
+          Accordion 1
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-b-lg p-2 px-4 w-64"
+          data-id="accordion-1"
+          data-default-open="true"
+          data-type="accordion-menu"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor
+          alias impedit veniam eligendi! Nemo eius tempora quo pariatur illum
+        </div>
+        <div
+          data-type="accordion"
+          data-id="accordion-2"
+          class="border-neutral-500 px-3 py-1 border border-1 w-64"
+        >
+          Accordion 2
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-b-lg p-2 px-4 w-64"
+          data-id="accordion-2"
+          data-type="accordion-menu"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor
+          alias impedit veniam eligendi! Nemo eius tempora quo pariatur illum
         </div>
       </div>
-      <!-- Modal End -->
     </main>
     <!-- Main End -->
     <!-- Scripts -->
     <script src="index.js"></script>
     <script src="Js/DropDown.js"></script>
     <script src="Js/Modal.js"></script>
+    <script src="Js/Accordian.js"></script>
   </body>
 </html>
