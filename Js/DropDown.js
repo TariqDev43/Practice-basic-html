@@ -9,14 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
     2. data-id = It should be a unique Id
     Menu :-
     Create A Menu Element it can be div or anything you like.
-    It should have 2 data- attributes and Optional data-direction.
+    It should have 2 data- attributes and 2 Optional data-direction.
     1. data-type = It should have "dropdown-menu"
     2. data-id = It should be ID of its trigger button
-    3. data-direction (available options:Top, Bottom, Left, Right)
+    3. (Optional) data-direction (available options:Top, Bottom, Left, Right)
+    4. (Optional) data-hover-open = Enable hover on button to open menu.
 
     Note:
         If no data-direction is provided it will default to
         bottom.
+        If no data-hover-open is provided it will default to
+        false.
     
     Example:-
         <button data-type="dropdown" data-id="dropdown-1">

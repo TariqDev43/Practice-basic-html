@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modalCloseBtn) {
       modalCloseBtn.addEventListener("click", () => {
         modalMenu.style.display = "none";
+        removeBackDrop();
       });
     }
 
@@ -89,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // If the click is outside / click event dos'nt contain modal body or button.
         // close modal
         modalMenu.style.display = "none";
+        removeBackDrop();
         window.removeEventListener("click", checkClickOutside);
       }
     }
@@ -125,10 +127,42 @@ document.addEventListener("DOMContentLoaded", () => {
       modalMenu.style.top = "0px";
     };
 
+    /*   Add BackDrop
+     ********************************************* */
+    function addBackDrop() {
+      const backdrop = document.createElement("div");
+      backdrop.id = `${btnId}-backdrop`;
+      backdrop.style.position = "absolute";
+      backdrop.style.display = "block";
+      backdrop.style.top = "0px";
+      backdrop.style.left = "0px";
+      backdrop.style.padding = "100px";
+      backdrop.style.width = "100vw";
+      backdrop.style.height = "100vh";
+      backdrop.style.backgroundColor = "rgba(0,0,0,0.5)";
+      backdrop.style.backdropFilter = "blur(10px)";
+      backdrop.style.zIndex = "998";
+      let body = document.body;
+      body.appendChild(backdrop);
+    }
+
+    /*   Add Remove Backdrop
+     ********************************************* */
+    function removeBackDrop() {
+      const backdrop = document.getElementById(`${btnId}-backdrop`);
+      let body = document.body;
+      body.removeChild(backdrop);
+    }
+
     btn.addEventListener("click", () => {
       if (modalMenu.style?.display === "none") {
         modalMenu.style.display = "block";
         modalMenu.style.position = "absolute";
+        modalMenu.style.zIndex = "999";
+
+        // Adding Backdrop
+        addBackDrop();
+
         if (!position || position === "center") {
           centerPosition();
         } else if (position === "right") {
@@ -146,6 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } else {
         modalMenu.style.display = "none";
+        // Adding Backdrop
+        removeBackDrop();
       }
     });
   }
