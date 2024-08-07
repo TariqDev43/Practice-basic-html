@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
   dropDownBtns.forEach((btn) => {
     // Get the data-id attribute of btn
     const btnId = btn.getAttribute("data-id");
-
     dropDownBtnList[btnId] = btn; // Assign the button to the corresponding ID
   });
 
@@ -52,6 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Get the data-id attribute of menu
     const menuId = menu.getAttribute("data-id");
     menu.style.display = "none";
+    menu.style.position = "absolute";
+
     dropDownMenuList[menuId] = menu; // Assign the button to the corresponding ID
   });
 
@@ -61,9 +62,70 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    btn.addEventListener("click", () => {
-      dropDownMenu.style.position = "absolute";
+    // Function To set Position Of Menu based on data-direction attribute
+    const displayMenuPosition = () => {
+      const direction = dropDownMenu.getAttribute("data-direction");
 
+      if (!direction) {
+        // Bottom
+        dropDownMenu.style.top = `${btn.offsetTop + btn.offsetHeight}px`;
+        dropDownMenu.style.left = `${btn.offsetLeft}px`;
+        return;
+      }
+      if (direction?.toLowerCase() === "top") {
+        // Top
+        dropDownMenu.style.top = `${
+          btn.offsetTop - dropDownMenu.offsetHeight
+        }px`;
+        dropDownMenu.style.left = `${btn.offsetLeft}px`;
+      }
+      if (direction?.toLowerCase() === "bottom") {
+        // Bottom
+        dropDownMenu.style.top = `${btn.offsetTop + btn.offsetHeight}px`;
+        dropDownMenu.style.left = `${btn.offsetLeft}px`;
+      }
+      if (direction?.toLowerCase() === "left") {
+        // left
+        dropDownMenu.style.top = `${btn.offsetTop}px`;
+        dropDownMenu.style.left = `${
+          btn.offsetLeft - dropDownMenu.offsetWidth
+        }px`;
+      }
+      if (direction?.toLowerCase() === "right") {
+        // right
+        dropDownMenu.style.top = `${btn.offsetTop}px`;
+        dropDownMenu.style.left = `${btn.offsetLeft + btn.offsetWidth}px`;
+      }
+      // Set z-index
+      dropDownMenu.style.zIndex = "999";
+    };
+
+    /*   Hover Events
+     ********************************************* */
+    let openWhenHover =
+      dropDownMenu.getAttribute("data-hover-open") === "true" ? true : false;
+
+    if (openWhenHover) {
+      btn.addEventListener("mouseover", () => {
+        if (dropDownMenu.style.display === "none") {
+          dropDownMenu.style.display = "block";
+          displayMenuPosition();
+          const checkClickOutSide = (e) => {
+            if (e.target === btn || dropDownMenu.contains(e.target)) {
+            } else {
+              dropDownMenu.style.display = "none";
+              window.removeEventListener("mouseover", checkClickOutSide);
+            }
+          };
+
+          window.addEventListener("mouseover", checkClickOutSide);
+        }
+      });
+    }
+
+    /*   Click Events
+     ********************************************* */
+    btn.addEventListener("click", () => {
       const checkClickOutSide = (e) => {
         if (e.target === btn || dropDownMenu.contains(e.target)) {
         } else {
@@ -76,41 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (dropDownMenu.style.display === "none") {
         dropDownMenu.style.display = "block";
-
-        const direction = dropDownMenu.getAttribute("data-direction");
-
-        if (!direction) {
-          // Bottom
-          dropDownMenu.style.top = `${btn.offsetTop + btn.offsetHeight}px`;
-          dropDownMenu.style.left = `${btn.offsetLeft}px`;
-          return;
-        }
-        if (direction?.toLowerCase() === "top") {
-          // Top
-          dropDownMenu.style.top = `${
-            btn.offsetTop - dropDownMenu.offsetHeight
-          }px`;
-          dropDownMenu.style.left = `${btn.offsetLeft}px`;
-        }
-        if (direction?.toLowerCase() === "bottom") {
-          // Bottom
-          dropDownMenu.style.top = `${btn.offsetTop + btn.offsetHeight}px`;
-          dropDownMenu.style.left = `${btn.offsetLeft}px`;
-        }
-        if (direction?.toLowerCase() === "left") {
-          // left
-          dropDownMenu.style.top = `${btn.offsetTop}px`;
-          dropDownMenu.style.left = `${
-            btn.offsetLeft - dropDownMenu.offsetWidth
-          }px`;
-        }
-        if (direction?.toLowerCase() === "right") {
-          // right
-          dropDownMenu.style.top = `${btn.offsetTop}px`;
-          dropDownMenu.style.left = `${btn.offsetLeft + btn.offsetWidth}px`;
-        }
-        // Set z-index
-        dropDownMenu.style.zIndex = "999";
+        displayMenuPosition();
       } else {
         dropDownMenu.style.display = "none";
       }
