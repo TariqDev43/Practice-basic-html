@@ -72,10 +72,33 @@
       </div>
     </aside>
     <!-- Side Bar -->
-
     <!-- Main -->
-    <main class="flex-center w-full h-screen">
-      <div>Basic Java Script Components</div>
+    <main
+      class="container mx-auto h-screen justify-center flex flex-wrap items-start content-center mx-auto gap-1"
+    >
+      <!-- DropDown Start -->
+      <button
+        class="btn btn-sm btn-primary"
+        data-type="dropdown"
+        data-id="dropdown-1"
+      >
+        Dropdown
+      </button>
+      <div
+        class="bg-neutral-100 shadow-lg px-4 min-w-32 py-2 rounded-lg"
+        data-type="dropdown-menu"
+        data-direction="bottom"
+        data-hover-open="true"
+        data-id="dropdown-1"
+      >
+        <ul class="">
+          <li class="hover:bg-neutral-200">
+            <a href="#">Link 1</a>
+          </li>
+          <li class="hover:bg-neutral-200"><a href="#">Link 2</a></li>
+        </ul>
+      </div>
+      <!-- DropDown End -->
     </main>
     <!-- Accordion End -->
     <!-- Main End -->

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body class="bg-neutral-200 flex justify-start items-center">
+    <aside class="h-screen w-64 h-screen">
+      <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <ul class="space-y-2 font-medium">
+          <li>
+            <a
+              href="/"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg
+                class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 21"
+              >
+                <path
+                  d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"
+                />
+                <path
+                  d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"
+                />
+              </svg>
+              <span class="ms-3">Dashboard</span>
+            </a>
+          </li>
+          <!-- DropDown-->
+          <li>
+            <a
+              href="/DropDown.html"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">DropDown</span>
+            </a>
+          </li>
+          <!-- Modal -->
+          <li>
+            <a
+              href="/Modal.html"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Modal</span>
+            </a>
+          </li>
+          <!-- Accordion -->
+          <li>
+            <a
+              href="/Accordion.html"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Accordion</span>
+            </a>
+          </li>
+          <!-- Image Slider -->
+          <li>
+            <a
+              href="/Image Slider.html"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Image Slider</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <!-- Side Bar -->
+    <!-- Main -->
+    <main
+      class="container mx-auto h-screen justify-center flex flex-wrap items-start content-center mx-auto gap-1"
+    >
+      <!-- Image Slider -->
+      <div class="hidden">
+        <div
+          data-width="500px"
+          data-type="image-slider"
+          class="overflow-hidden"
+        >
+          <img src="./Images/1.avif" alt="random1" />
+          <img src="./Images/2.avif" alt="random2" />
+          <img src="./Images/3.avif" alt="random3" />
+        </div>
+      </div>
+
+      <div class="">
+        <!-- DropDown Start -->
+        <button
+          class="btn btn-sm btn-primary"
+          data-type="dropdown"
+          data-id="dropdown-1"
+        >
+          Dropdown
+        </button>
+        <div
+          class="bg-neutral-100 shadow-lg px-4 min-w-32 py-2 rounded-lg"
+          data-type="dropdown-menu"
+          data-direction="bottom"
+          data-hover-open="true"
+          data-id="dropdown-1"
+        >
+          <ul class="">
+            <li class="hover:bg-neutral-200">
+              <a href="#">Link 1</a>
+            </li>
+            <li class="hover:bg-neutral-200"><a href="#">Link 2</a></li>
+          </ul>
+        </div>
+        <!-- DropDown End -->
+        <!-- Modal Start -->
+        <!-- Modal Button -->
+        <button
+          data-type="modal"
+          data-id="modal-1"
+          class="btn btn-sm bg-orange-600 text-white ms-2"
+        >
+          Open Modal
+        </button>
+        <!-- Modal Menu -->
+        <div
+          data-type="modal-menu"
+          data-id="modal-1"
+          data-position="right"
+          data-closeOutsideClick="true"
+          class="bg-white h-screen flex flex-col w-64 px-6 p-2 shadow-lg rounded-lg"
+        >
+          <h3 class="text-2xl font-semibold uppercase">Modal Menu</h3>
+          <hr />
+          <div class="my-5">
+            <h4 class="text-xl mb-1 font-semibold">Modal Body</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+              minima numquam quas optio dignissimos perferendis consequuntur ut
+              alias at, modi, illo ducimus impedit quae facere debitis ratione
+              nulla placeat recusandae!
+            </p>
+          </div>
+          <div class="my-2 text-end">
+            <button
+              class="btn btn-sm bg-neutral-500 text-white"
+              data-type="modal-close"
+              data-id="modal-1"
+            >
+              Close Button
+            </button>
+          </div>
+        </div>
+        <!-- Modal End -->
+      </div>
+      <!-- Accordion Start -->
+      <div class="hidden flex flex-col gap-1">
+        <div
+          data-type="accordion"
+          data-id="accordion-11"
+          class="border-neutral-500 px-3 py-1 border border-1 w-64"
+        >
+          Accordion 11
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-b-lg p-2 px-4 w-64"
+          data-id="accordion-11"
+          data-default-open="true"
+          data-type="accordion-menu"
+          data-accordion-group="sidebar-accordion1"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor
+          alias impedit veniam eligendi! Nemo eius tempora quo pariatur illum
+        </div>
+        <div
+          data-type="accordion"
+          data-id="accordion-22"
+          class="border-neutral-500 px-3 py-1 border border-1 w-64"
+        >
+          Accordion 22
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-b-lg p-2 px-4 w-64"
+          data-id="accordion-22"
+          data-type="accordion-menu"
+          data-accordion-group="sidebar-accordion1"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor
+          alias impedit veniam eligendi! Nemo eius tempora quo pariatur illum
+        </div>
+        <div
+          data-type="accordion"
+          data-id="accordion-33"
+          class="border-neutral-500 px-3 py-1 border border-1 w-64"
+        >
+          Accordion 33
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-b-lg p-2 px-4 w-64"
+          data-id="accordion-33"
+          data-type="accordion-menu"
+          data-accordion-group="sidebar-accordion1"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor
+          alias impedit veniam eligendi! Nemo eius tempora quo pariatur illum
+        </div>
+        <div
+          data-type="accordion"
+          data-id="accordion-44"
+          class="border-neutral-500 px-3 py-1 border border-1 w-64"
+        >
+          Accordion 44
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-b-lg p-2 px-4 w-64"
+          data-id="accordion-44"
+          data-type="accordion-menu"
+          data-accordion-group="sidebar-accordion1"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor
+          alias impedit veniam eligendi! Nemo eius tempora quo pariatur illum
+        </div>
+      </div>
+      <div class="hidden flex flex-col gap-1">
+        <div
+          data-type="accordion"
+          data-id="accordion-1"
+          class="border-neutral-500 px-3 py-1 border border-1 w-64"
+        >
+          Accordion 1
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-b-lg p-2 px-4 w-64"
+          data-id="accordion-1"
+          data-default-open="true"
+          data-type="accordion-menu"
+          data-accordion-group="sidebar-accordion"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor
+          alias impedit veniam eligendi! Nemo eius tempora quo pariatur illum
+        </div>
+        <div
+          data-type="accordion"
+          data-id="accordion-2"
+          class="border-neutral-500 px-3 py-1 border border-1 w-64"
+        >
+          Accordion 2
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-b-lg p-2 px-4 w-64"
+          data-id="accordion-2"
+          data-type="accordion-menu"
+          data-accordion-group="sidebar-accordion"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor
+          alias impedit veniam eligendi! Nemo eius tempora quo pariatur illum
+        </div>
+      </div>
+    </main>
+    <!-- Accordion End -->
+    <!-- Main End -->
+    <!-- Scripts -->
+    <script src="index.js"></script>
+    <script src="Js/DropDown.js"></script>
+    <script src="Js/Modal.js"></script>
+    <script src="Js/Accordian.js"></script>
+    <script src="Js/ImageSlider/ImageSlider.js"></script>
+  </body>
+</html>
