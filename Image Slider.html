@@ -77,22 +77,67 @@
       class="container mx-auto h-screen justify-center flex flex-wrap items-start content-center mx-auto gap-1"
     >
       <!-- Image Slider -->
-      <div class="">
+
+      <div data-type="slider" data-id="slider1" class="">
         <div
-          data-width="500px"
-          data-type="image-slider"
-          class="overflow-hidden"
+          data-container-width="600px"
+          data-container-height="300px"
+          data-type="slider-container"
+          class=""
         >
-          <img src="./Images/1.avif" alt="random1" />
-          <img src="./Images/2.avif" alt="random2" />
-          <img src="./Images/3.avif" alt="random3" />
+          <img
+            data-type="slider-item"
+            src="./Images/1.avif"
+            alt="random1"
+            class=""
+          />
+          <img
+            data-type="slider-item"
+            src="./Images/2.avif"
+            alt="random2"
+            class=""
+          />
+          <img
+            data-type="slider-item"
+            src="./Images/3.avif"
+            alt="random3"
+            class=""
+          />
+        </div>
+        <div data-type="slider-buttons">
+          <button data-type="prev" class="prev-btn">Previous</button>
+          <button data-type="next" class="next-btn">Next</button>
         </div>
       </div>
+
+      <!-- <div
+        class="bg-yellow-300 w-[600px] h-[300px] flex overflow-hidden borer-2 border-black"
+      >
+        <img
+          data-type="slider-item"
+          src="./Images/1.avif"
+          alt="random1"
+          class="w-[600px] h-[300px] object-cover shrink-0"
+        />
+        <img
+          data-type="slider-item"
+          src="./Images/2.avif"
+          alt="random2"
+          class="w-[600px] h-[300px] object-cover shrink-0"
+        />
+        <img
+          data-type="slider-item"
+          src="./Images/3.avif"
+          alt="random3"
+          class="w-[600px] h-[300px] object-cover shrink-0"
+        />
+      </div> -->
     </main>
-    <!-- Accordion End -->
+    <!-- Images slider End -->
+
     <!-- Main End -->
     <!-- Scripts -->
-    <script src="index.js"></script>
+    <!-- <script src="index.js"></script> -->
     <script src="Js/DropDown.js"></script>
     <script src="Js/Modal.js"></script>
     <script src="Js/Accordian.js"></script>
