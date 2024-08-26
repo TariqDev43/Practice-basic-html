@@ -32,18 +32,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Get Width/height of container from data attribute and
     // Set container width/height Accordingly
-    let containerWidth = sliderContainer.getAttribute("data-container-width")
-      ? sliderContainer.getAttribute("data-container-width")
-      : "80vw";
-    let containerHeight = sliderContainer.getAttribute("data-container-height")
-      ? sliderContainer.getAttribute("data-container-height")
-      : "80vh";
 
-    slider.style.width = containerWidth;
-    slider.style.height = containerHeight;
+    let containerWidthElement = sliderContainer.getAttribute(
+      "data-container-width"
+    );
+    let containerHeightElement = sliderContainer.getAttribute(
+      "data-container-height"
+    );
 
-    sliderContainer.style.width = containerWidth;
-    sliderContainer.style.height = containerHeight;
+    let containerWidth = containerWidthElement
+      ? containerWidthElement
+      : `${window.innerWidth}px`;
+    let containerHeight = containerHeightElement
+      ? containerHeightElement
+      : `${window.innerHeight}px`;
+
+    let widthUnit = containerWidth.slice(-2);
+
+    // if (containerWidthElement) {
+    //   slider.style.width = containerWidth;
+    //   sliderContainer.style.width = containerWidth;
+    // }
+    // if (containerHeightElement) {
+    //   slider.style.height = containerHeight;
+    //   sliderContainer.style.height = containerHeight;
+    // }
 
     // Set container style to flex and slider to overflow-hidden.
     slider.style.overflow = "hidden";
@@ -74,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Move Slider based on Current Index
       sliderContainer.style.transform = `translateX(-${
         index * parseInt(containerWidth)
-      }px)`;
+      }${widthUnit})`;
     }
 
     setInterval(() => {
