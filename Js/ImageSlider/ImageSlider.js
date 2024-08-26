@@ -59,52 +59,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     sliderContainer.style.transition = `transform 0.75s ease-in-out`;
-    // sliderContainer.style.transform = `translateX(-${containerWidth})`;
 
-    function nextSlide() {
-      // Get Current translateX Value
-      const currentTranslateX = sliderContainer.style.transform;
-
-      let currentTranslateXValue = parseInt(
-        currentTranslateX.replace("translateX", "").slice(2, -3)
-      );
-      // console.log(currentTranslateXValue);
-
-      let currentIndex = currentTranslateXValue
-        ? currentTranslateX / containerWidth
-        : 1;
-
-      console.log(currentIndex);
-
-      // checking if it's first index reset position to 0
-      if (currentIndex === 0) {
-        console.log(currentIndex);
-
-        sliderContainer.style.transform = `translateX(-${
-          currentIndex * parseInt(containerWidth)
-        }px)`;
-        return;
+    function changeSlide(index) {
+      if (index < 0) {
+        index = sliderItems.length - 1;
       }
-      // checking if it's last currentIndex reset position to 0
-      if (currentIndex === sliderItems.length) {
-        currentIndex = 0;
+      if (index === sliderItems.length) {
+        index = 0;
       }
 
+      // Move Slider based on Current Index
       sliderContainer.style.transform = `translateX(-${
-        currentIndex * parseInt(containerWidth)
+        index * parseInt(containerWidth)
       }px)`;
     }
 
-    // setInterval(() => {
-    //   Array.from({ length: sliderItems.length }, (_, i) => {
-    //     setTimeout(() => {
-    //       nextSlide(i);
-    //     }, i * 2000);
-    //   });
-    // }, sliderItems.length * 2000);
+    setInterval(() => {
+      sliderItems.forEach((item, index) => {
+        setTimeout(() => {
+          changeSlide(index);
+        }, index * 2000);
+      });
+    }, sliderItems.length * 2000);
 
     // Get Slider buttons
     const buttons = slider.querySelector('[data-type="slider-buttons"]');
+    if (!buttons) {
+      return;
+    }
     const prevButton = buttons.querySelector('[data-type="prev"]');
     const nextButton = buttons.querySelector('[data-type="next"]');
 
@@ -112,20 +94,47 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // prevButton.addEventListener("click", () => {
-    //   nextSlide(sliderItems.length - 1);
-    //   const currentTranslateX = sliderContainer.style.transform;
-    //   console.log(currentTranslateX);
-    // });
-    nextButton.addEventListener("click", () => {
-      nextSlide();
+    Object.assign(prevButton.style, {
+      position: "absolute",
+      top: "50%",
+      left: "0",
+      transform: "translateY(-50%)",
+      zIndex: 5,
     });
 
-    // setInterval(() => {
-    //   Array.from({ length: sliderItems.length, }).map((item, index) => {
-    //     nextSlide(index);
-    //   });
-    // }, 2000);
+    Object.assign(nextButton.style, {
+      position: "absolute",
+      top: "50%",
+      right: "0",
+      transform: "translateY(-50%)",
+      zIndex: 5,
+    });
+
+    const getCurrentTranslate = () => {
+      const currentTranslateX = sliderContainer.style.transform;
+
+      let currentTranslateXValue = parseInt(
+        currentTranslateX.replace("translateX", "").slice(2, -3)
+      );
+
+      let intContainerWith = parseInt(containerWidth.slice(0, -2));
+
+      let currentIndex = currentTranslateXValue
+        ? parseInt(currentTranslateXValue / intContainerWith)
+        : 0;
+
+      return currentIndex;
+    };
+
+    prevButton.addEventListener("click", () => {
+      let index = getCurrentTranslate();
+      changeSlide(index - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+      let index = getCurrentTranslate();
+      changeSlide(index + 1);
+    });
 
     // Slider Loop End
   });
