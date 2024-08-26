@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ? sliderContainer.getAttribute("data-container-height")
       : "80vh";
 
+    slider.style.width = containerWidth;
+    slider.style.height = containerHeight;
+
     sliderContainer.style.width = containerWidth;
     sliderContainer.style.height = containerHeight;
 
